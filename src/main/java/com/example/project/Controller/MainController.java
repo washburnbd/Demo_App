@@ -26,6 +26,11 @@ public class MainController {
         this.dataService = dataService;
     }
 
+    @GetMapping("/health")
+    public String healthCheck() {
+        return "OK";
+    }
+
     @PostMapping("/")
     public ResponseEntity<String> getNamePost (@RequestBody CloudTestRequest cloudTestRequest) {
         String nameResponse = mainService.getMessage(cloudTestRequest.getName());
